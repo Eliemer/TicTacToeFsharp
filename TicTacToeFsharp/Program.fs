@@ -10,9 +10,9 @@ let main argv =
     let mutable gameBoard = initBoard()
     let mutable playerMark = X
 
-    while Option.isNone (checkWinner gameBoard) do
+    while Option.isNone (checkWinner gameBoard) && not (isBoardFull gameBoard) do
         Console.Clear()
-        printfn "%A" (drawBoard gameBoard)
+        printfn "%s" (drawBoard gameBoard)
         let mutable playerMove : Position option = None
 
         while Option.isNone playerMove do
@@ -26,7 +26,14 @@ let main argv =
                     placeMark playerMark move gameBoard
                     playerMark <- if playerMark = X then O else X
 
-    Console.WriteLine($"The winner is... {(checkWinner gameBoard).Value}")
+    Console.Clear()
+    printfn "%s" (drawBoard gameBoard)
+
+    if isBoardFull gameBoard then do
+        printfn "...There were no winners ..."
+    else
+        Console.WriteLine($"The winner is... {(checkWinner gameBoard).Value}")
+
     Console.WriteLine("\nPress enter to exit...")
     Console.ReadLine() |> ignore
     0

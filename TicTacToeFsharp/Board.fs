@@ -46,3 +46,9 @@ let checkWinner (board : Board) : Mark option =
         | None -> result <- helper O
 
     result
+
+let isBoardFull (board : Board) : bool =
+    seq { for i in 0..2 do
+            for j in 0..2 do
+                Option.isSome board.[i,j] }
+    |> Seq.forall ((=) true)
