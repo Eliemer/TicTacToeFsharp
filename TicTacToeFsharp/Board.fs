@@ -1,8 +1,6 @@
 ﻿module Board
 
-type Mark = X | O
-type Position = { X : int; Y : int }
-type Board = Mark option [,]
+open Models
 
 let initBoard() : Board = Array2D.create 3 3 None
 let drawBoard (board : Board) : string =
@@ -48,27 +46,3 @@ let checkWinner (board : Board) : Mark option =
         | None -> result <- helper O
 
     result
-
-type MaybeHelper() =
-    member this.Bind(x, f) = 
-        match x with
-        | Some _ -> f x
-        | None -> None
-
-    member this.Return(x) =
-        Some x
-
-// TEST code
-let mutable (board : Board) = Array2D.create 3 3 None
-printf "%s\n" (drawBoard board)
-
-board.[0, 0] <- Some X
-printf "%s\n" (drawBoard board)
-
-placeMark O {X=2;Y=1} board
-printf "%s\n" (drawBoard board)
-
-placeMark O {X=2; Y=0} board
-placeMark O {X=2; Y=2} board
-printfn "%s" (drawBoard board)
-printf "%A\n" (checkWinner board)

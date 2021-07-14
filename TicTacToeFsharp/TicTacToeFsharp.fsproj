@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Models.fs" />
+    <Compile Include="Utils.fs" />
     <Compile Include="Board.fs" />
-    <Compile Include="Test\BoardTest.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
