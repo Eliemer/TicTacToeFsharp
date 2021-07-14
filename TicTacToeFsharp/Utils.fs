@@ -2,6 +2,10 @@
 
 open Models
 
+/// <summary>
+/// Parses player's encoded string into a Position Option
+/// </summary>
+/// <param name="input"></param>
 let parsePlayerInput (input : string) : Position option =
 
     let y = if input.Length <> 2 then None
