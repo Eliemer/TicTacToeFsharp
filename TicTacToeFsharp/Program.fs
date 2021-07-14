@@ -9,7 +9,7 @@ open Utils
 /// A basic game of tic-tac-toe.
 /// </summary>
 [<EntryPoint>]
-let main =
+let main args =
     let mutable gameBoard = initBoard()
     let mutable playerMark = X // starting player
 
@@ -44,4 +44,6 @@ let main =
 
     Console.WriteLine("\nPress enter to exit...")
     Console.ReadLine() |> ignore
+
+    // exit code
     0
