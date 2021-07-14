@@ -4,6 +4,9 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <WarnOn>3390;$(WarnOn)</WarnOn>
+    <Description>A simple game of tic-tac-toe</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Eliemer/TicTacToeFsharp</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
